@@ -45,7 +45,7 @@ def app():
     webrtc_streamer(
         key="record",
         mode=WebRtcMode.SENDRECV,
-        rtc_configuration={"iceServers": [{"urls": ["turn:turn01.hubl.in?transport=tcp"]}]},
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun1.voiceeclipse.net:3478"]}]},
         media_stream_constraints={
             "video": {
             "width": {"min": 800, "ideal": 1280}
