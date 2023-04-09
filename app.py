@@ -8,7 +8,7 @@ from aiortc.contrib.media import MediaRecorder
 from streamlit_webrtc import WebRtcMode, webrtc_streamer
 
 
-st.write('# Apply Canny Filter')
+st.write('# Apply Canny Filter 😃')
 
 url = 'https://7dc9-2405-201-29-8cbf-7d99-7bc1-cccb-885c.ngrok-free.app/yay'
 
@@ -45,7 +45,7 @@ def app():
     webrtc_streamer(
         key="record",
         mode=WebRtcMode.SENDRECV,
-        rtc_configuration={"iceServers": [{"urls": ["stun:stun.12connect.com:3478"]}]},
+        rtc_configuration={"iceServers": [{"urls": ["turn:turn01.hubl.in?transport=tcp"]}]},
         media_stream_constraints={
             "video": {
             "width": {"min": 800, "ideal": 1280}
