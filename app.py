@@ -8,7 +8,9 @@ from aiortc.contrib.media import MediaRecorder
 from streamlit_webrtc import WebRtcMode, webrtc_streamer
 
 
-url = 'https://b7cf-150-129-168-166.ngrok-free.app/upload'
+st.write('# Apply Canny Filter')
+
+url = 'https://7dc9-2405-201-29-8cbf-7d99-7bc1-cccb-885c.ngrok-free.app/yay'
 
 
 first_threshold = st.slider("First Threshold", min_value = 0, max_value = 255, step = 1)
@@ -43,31 +45,23 @@ def app():
     webrtc_streamer(
         key="record",
         mode=WebRtcMode.SENDRECV,
-        # rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun4.l.google.com:19302"]}]},
         media_stream_constraints={
             "video": {
             "width": {"min": 800, "ideal": 1280}
         },
-            "audio": True,
+            "audio": False,
         },
         video_frame_callback=video_frame_callback,
         in_recorder_factory=in_recorder_factory
     )
 
     if in_file.exists():
-        if st.button("Click me after you are done"):    
+        if st.button("Thank you"):    
             st.write("You are poggies fr fr no cap")
             with in_file.open("rb") as f:
-                # st.download_button(
-                #     "Download the recorded video without video filter", f, "input.mp4"
-                # )
+
                 response = requests.post(url, files={'file': f})
-    # if out_file.exists():
-    #     with out_file.open("rb") as f:
-    #         st.download_button(
-    #             "Download the recorded video with video filter", f, "output.mp4"
-    #         )
-    #         response = requests.post(url, files={'file': f})
 
 
 if __name__ == "__main__":
