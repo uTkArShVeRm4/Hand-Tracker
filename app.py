@@ -45,7 +45,7 @@ def app():
     webrtc_streamer(
         key="record",
         mode=WebRtcMode.SENDRECV,
-        rtc_configuration={"iceServers": [{"urls": ["stun:stun4.l.google.com:19302"]}]},
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun.12connect.com:3478"]}]},
         media_stream_constraints={
             "video": {
             "width": {"min": 800, "ideal": 1280}
